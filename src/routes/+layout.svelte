@@ -11,31 +11,52 @@
 		IconMail
 	} from '@tabler/icons-svelte';
 	import { page } from '$app/stores';
-	import Page from './legal/+page.svelte';
 	$: console.log($page.url.pathname);
 </script>
 
-<AppShell>
+<AppShell class="bg-lifecreatesart-background">
 	<!-- Header Navbar -->
-	<svelte:fragment slot="pageHeader">
-		<AppBar
-			gridColumns="grid-cols-3"
-			slotDefault="place-self-start"
-			slotTrail="place-self-end"
-			class="shadow"
-		>
+	<svelte:fragment slot="header">
+		<AppBar class="shadow-lg !bg-lifecreatesart-foreground px-8 h-16">
 			<svelte:fragment slot="lead">
-				<div class="relative">
-					<button use:menu={{ menu: 'hamburger' }}>
+				<div class="relative ">
+					<!-- Hamburger -->
+					<button use:menu={{ menu: 'hamburger' }} class="md:hidden">
 						<IconMenu2 size={30} />
 					</button>
-					<div class="p-4 shadow-xl list-nav card" data-menu="hamburger">
+					<div
+						class="p-4 shadow-xl list-nav card bg-lifecreatesart-background"
+						data-menu="hamburger"
+					>
 						<ul>
 							<li><a href="/">Home</a></li>
 							<li><a href="/shop">Shop</a></li>
 							<li><a href="/showcase">Art Showcase</a></li>
 							<li><a href="/blog">My Blog</a></li>
 						</ul>
+					</div>
+					<!-- Menu -->
+					<div class="hidden gap-8 font-semibold tracking-wider uppercase md:flex">
+						<a
+							href="/"
+							class="transition-all duration-200 ease-in-out border-b border-transparent hover:border-black"
+							>Home</a
+						>
+						<a
+							href="/shop"
+							class="transition-all duration-200 ease-in-out border-b border-transparent hover:border-black"
+							>Art Shop</a
+						>
+						<a
+							href="/showcase"
+							class="transition-all duration-200 ease-in-out border-b border-transparent hover:border-black"
+							>Art Showcase</a
+						>
+						<a
+							href="/blog"
+							class="transition-all duration-200 ease-in-out border-b border-transparent hover:border-black"
+							>Blog</a
+						>
 					</div>
 				</div>
 			</svelte:fragment>
@@ -57,9 +78,9 @@
 	<!-- Router Slot -->
 	<slot />
 	<!-- Footer -->
-	<svelte:fragment slot="footer">
+	<svelte:fragment slot="pageFooter">
 		<div
-			class="flex flex-col items-center justify-center gap-5 py-8 shadow bg-surface-100-800-token"
+			class="flex flex-col items-center justify-center gap-5 py-8 shadow !bg-lifecreatesart-foreground"
 		>
 			<a
 				href="https://www.instagram.com/lifecreatesart"
