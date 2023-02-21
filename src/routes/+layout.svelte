@@ -2,7 +2,8 @@
 	import '@skeletonlabs/skeleton/themes/theme-hamlindigo.css';
 	import '@skeletonlabs/skeleton/styles/all.css';
 	import '../app.postcss';
-	import { AppBar, AppShell, menu } from '@skeletonlabs/skeleton';
+	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
+	import { AppBar, AppShell, storePopup, popup } from '@skeletonlabs/skeleton';
 	import {
 		IconMenu2,
 		IconShoppingBag,
@@ -11,7 +12,14 @@
 		IconMail
 	} from '@tabler/icons-svelte';
 	import { page } from '$app/stores';
-	$: console.log($page.url.pathname);
+
+	import type { PopupSettings } from '@skeletonlabs/skeleton';
+
+	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+	let hamburgerSettings: PopupSettings = {
+		event: 'click',
+		target: 'hamburgerPopup'
+	};
 </script>
 
 <AppShell class="bg-lifecreatesart-background">
@@ -21,12 +29,12 @@
 			<svelte:fragment slot="lead">
 				<div class="relative ">
 					<!-- Hamburger -->
-					<button use:menu={{ menu: 'hamburger' }} class="md:hidden">
+					<button use:popup={hamburgerSettings} class="md:hidden">
 						<IconMenu2 size={30} />
 					</button>
 					<div
-						class="p-4 shadow-xl list-nav card bg-lifecreatesart-background"
-						data-menu="hamburger"
+						class="p-4 font-semibold tracking-wider uppercase shadow-xl list-nav bg-lifecreatesart-foreground"
+						data-popup="hamburgerPopup"
 					>
 						<ul>
 							<li><a href="/">Home</a></li>
