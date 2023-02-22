@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { IconShoppingCartPlus, IconShoppingCartOff } from '@tabler/icons-svelte';
 	export let article: Article;
 	interface Article {
 		slug: string;
@@ -16,14 +17,13 @@
 		};
 	}
 	let currentlySelectedImage: number = 0;
-	let hideMoreText: boolean = true;
 </script>
 
-<div class="m-5 p-5 flex-col flex rounded shadow-lg gap-5 lg:flex-row">
+<div class="m-5 p-5 flex-col flex rounded shadow-lg gap-5 lg:flex-row items-center justify-center">
 	<!-- Image Section -->
 	<div class="flex flex-col items-center">
 		<h1 class="mb-7">{article.title}</h1>
-		<div class="w-[20rem] h-[15rem] lg:w-[40rem] lg:h-[30rem]">
+		<div class="w-[20rem] h-[15rem] md:w-[30rem] md:h-[22rem] lg:w-[40rem] lg:h-[30rem]">
 			<img src={article.images[currentlySelectedImage].image.url} alt={article.images[currentlySelectedImage].image.title} class="object-contain w-full h-full" />
 		</div>
 		<!-- Images Container -->
@@ -37,11 +37,20 @@
 			</div>
 		{/if}
 	</div>
-	<div class="flex flex-col justify-center items-center lg:w-[20rem]">
+	<div class="flex flex-col h-full items-center justify-between lg:w-[20rem] lg:ml-10 lg:py-10">
 		<!-- Text Section -->
-		<div class={`${hideMoreText && 'line-clamp-[15]'}`}>{article.text}</div>
-		<button on:click={() => (hideMoreText = false)} class="underline text-primary-900">read more ...</button>
+		<div>{article.text}</div>
 		<!-- Footer Section -->
-		<div class="">Footer</div>
+		{#if article.quantity > 0}
+			<button class="mt-10 btn bg-primary-600 rounded shadow">
+				<span>Add to cart</span>
+				<span><IconShoppingCartPlus size={30} /></span>
+			</button>
+		{:else}
+			<button class="mt-10 btn bg-primary-600 rounded shadow" disabled>
+				<span>Sold out</span>
+				<span><IconShoppingCartOff size={30} /></span>
+			</button>
+		{/if}
 	</div>
 </div>
