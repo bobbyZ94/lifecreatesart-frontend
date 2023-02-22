@@ -1,22 +1,33 @@
-/*place global styles here */
-html, body { @apply h-full overflow-hidden !hide-scrollbar; }
+/**
+Global styles to override everything. 
+You dont need to redefine @layer/@base etc, just define here!
+**/
+html,
+body {
+	@apply h-full overflow-hidden !hide-scrollbar;
+}
+
+@font-face {
+	font-family: 'Chilanka';
+	src: local('Chilanka'), url('/fonts/Chilanka-Regular.woff') format(woff);
+}
 
 ::-webkit-scrollbar-track {
-  @apply !bg-lifecreatesart-background px-[1px];
+	@apply !bg-lifecreatesart-background px-[1px];
 }
 ::-webkit-scrollbar-thumb {
-  @apply rounded-token !bg-lifecreatesart-foreground;
+	@apply rounded-token !bg-lifecreatesart-foreground;
 }
 
 ::-webkit-scrollbar {
-  @apply w-2;
+	@apply w-2;
 }
 
 /* Firefox */
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
 html {
-  scrollbar-color: rgba(0, 0, 0, 0.2) rgba(255, 255, 255, 0.05);
+	scrollbar-color: rgba(0, 0, 0, 0.2) rgba(255, 255, 255, 0.05);
 }
 html.dark {
-  scrollbar-color: rgba(255, 255, 255, 0.1) rgba(0, 0, 0, 0.05);
+	scrollbar-color: rgba(255, 255, 255, 0.1) rgba(0, 0, 0, 0.05);
 }
