@@ -6,6 +6,7 @@ module.exports = {
 		extend: {
       fontFamily: {
         chilanka: ['Chilanka'],
+        indieFlower: ['Indie-Flower']
       },
       colors: {
         'lifecreatesart-background': '#DAE6FF',

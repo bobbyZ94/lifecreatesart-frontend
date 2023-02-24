@@ -9,6 +9,14 @@
 		event: 'click',
 		target: 'hamburgerPopup'
 	};
+
+	// Shopping Cart Drawer
+	import { drawerStore } from '@skeletonlabs/skeleton';
+	import type { DrawerSettings } from '@skeletonlabs/skeleton';
+	function drawerOpen(): void {
+		const settings: DrawerSettings = { id: 'example-1' };
+		drawerStore.open(settings);
+	}
 </script>
 
 <AppBar class="shadow-lg !bg-lifecreatesart-foreground px-8 h-16">
@@ -36,16 +44,18 @@
 		</div>
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
-		{#if $page.url.pathname === '/'}
-			<a href="/shop">
-				<button>
-					<IconShoppingBag size={30} />
+		<div class="h-12">
+			{#if $page.url.pathname === '/shop'}
+				<button on:click={drawerOpen}>
+					<IconShoppingCart size={30} />
 				</button>
-			</a>
-		{:else}
-			<button>
-				<IconShoppingCart size={30} />
-			</button>
-		{/if}
+			{:else}
+				<a href="/shop">
+					<button>
+						<IconShoppingBag size={30} />
+					</button>
+				</a>
+			{/if}
+		</div>
 	</svelte:fragment>
 </AppBar>
