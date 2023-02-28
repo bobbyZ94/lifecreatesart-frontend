@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Indie-Flower';
+    src: local('Indie-Flower'), url('/fonts/Indie-Flower-Regular.woff') format(woff);
+  }
+}
