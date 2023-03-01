@@ -5,7 +5,7 @@
 	const aboutText = { children: data.about.text };
 </script>
 
-<div class="my-20">
+<div class="my-20 max-w-4xl">
 	<img src="/images/logo.jpg" alt="logo" class="object-cover" />
 	<div
 		class="m:mx-10 relative my-[5rem] shadow-lg backdrop-contrast-[1.05] xl:mx-0 xl:my-[15rem] xl:shadow-none xl:backdrop-contrast-100"

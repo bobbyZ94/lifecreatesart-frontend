@@ -3,7 +3,9 @@
 	import { page } from '$app/stores';
 </script>
 
-<div class="navbar rounded-b-[2rem] bg-neutral px-8 pt-3 pb-0 font-bold shadow-lg">
+<div
+	class="navbar sticky top-0 z-10 rounded-b-[2rem] bg-neutral bg-opacity-70 px-8 pt-3 pb-0 font-bold shadow-lg backdrop-blur-md"
+>
 	<!-- Navbar Left Side -->
 	<div class="navbar-start w-3/4">
 		<button class="md:hidden">

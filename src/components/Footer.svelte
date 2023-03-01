@@ -5,7 +5,10 @@
 <div
 	class="flex w-full flex-col items-center justify-center gap-5 rounded-t-[3rem] bg-neutral py-8"
 >
-	<a href="https://www.instagram.com/lifecreatesart" class="flex items-center gap-2 !no-underline">
+	<a
+		href="https://www.instagram.com/lifecreatesart"
+		class="flex items-center gap-2 !text-base-content !no-underline"
+	>
 		<IconBrandInstagram size={30} stroke={1} />
 		Follow me on Instagram
 	</a>
