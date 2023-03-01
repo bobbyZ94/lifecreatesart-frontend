@@ -10,8 +10,6 @@
 
 <div class="flex h-full w-full flex-col items-center font-indieFlower text-xl">
 	<Header />
-	<div class="max-w-4xl">
-		<slot />
-	</div>
+	<slot />
 	<Footer />
 </div>

@@ -45,9 +45,11 @@
 	}
 </script>
 
-<div class="grid grid-cols-1 gap-5 rounded p-5 shadow-lg backdrop-contrast-[1.05] sm:m-5">
+<div
+	class="grid max-w-6xl grid-cols-1 rounded p-5 shadow-lg backdrop-contrast-[1.05] xl:grid-cols-3"
+>
 	<!-- Image Section -->
-	<div class="flex h-full flex-col items-center">
+	<div class="flex h-full flex-col items-center pb-5 xl:col-span-2">
 		<h1 class="my-5 font-serif text-4xl sm:text-6xl">{article.title}</h1>
 		<div class="h-[15rem] w-[20rem] sm:h-[22rem] sm:w-[30rem] lg:h-[30rem] lg:w-[40rem]">
 			<a class="" href={article.images[currentlySelectedImage].image.url}>
@@ -60,7 +62,7 @@
 		</div>
 		<!-- Images Container -->
 		{#if article.images.length > 1}
-			<div class="my-3 flex flex-wrap gap-3">
+			<div class="my-3 flex max-w-[40rem] flex-wrap gap-3">
 				{#each article.images as image, indexImage}
 					<button on:click={() => (currentlySelectedImage = indexImage)}>
 						<img
@@ -73,14 +75,14 @@
 			</div>
 		{/if}
 	</div>
-	<div class="flex h-full flex-col items-center justify-between lg:ml-10 lg:w-[20rem] lg:py-10">
+	<div class="flex h-full w-full flex-col items-center justify-between py-16 xl:col-span-1">
 		<!-- Text Section -->
-		<div class={`text-lg ${readMore ? '' : 'line-clamp-[8]'}`}>
+		<div class={`text-xl ${readMore ? '' : 'line-clamp-[8] xl:line-clamp-none'}`}>
 			{article.text}
 		</div>
 		<button
 			on:click={() => (readMore === true ? (readMore = false) : (readMore = true))}
-			class="btn-sm btn mt-2 !bg-neutral"
+			class="btn-sm btn mt-2 !bg-neutral xl:hidden"
 		>
 			{#if readMore}
 				<IconCornerLeftUp />
