@@ -1,7 +1,26 @@
-<script lang ts>
+<script lang="ts">
 	import { IconMenu2, IconShoppingBag, IconShoppingCart } from '@tabler/icons-svelte'
 	import { page } from '$app/stores'
 	import { shoppingCartVisible } from '../stores/shoppingCart'
+	import { storeShoppingCart } from '../stores/shoppingCart'
+
+	$: articlesInShoppingCart = $storeShoppingCart.reduce((previousValue, currentValue) => previousValue + currentValue.quantity, 0)
+
+	// Animates shopping cart icon when article added
+	function iconShoppingCartClass(className: string) {
+		return function (node: HTMLElement, toggled: number) {
+			return {
+				update() {
+					node.classList.add(className)
+					setTimeout(() => node.classList.remove(className), 300)
+				},
+				destroy() {
+					node.classList.remove(className)
+				},
+			}
+		}
+	}
+	const classScale110 = iconShoppingCartClass('scale-110')
 </script>
 
 <div class="navbar sticky top-0 z-10 rounded-b-[2rem] bg-neutral bg-opacity-70 px-8 pt-3 pb-0 font-bold shadow-lg backdrop-blur-md">
@@ -22,7 +41,16 @@
 		<div class="flex h-12 items-center">
 			{#if $page.url.pathname === '/shop'}
 				<button on:click={() => ($shoppingCartVisible ? ($shoppingCartVisible = false) : ($shoppingCartVisible = true))}>
-					<IconShoppingCart size={30} />
+					<div use:classScale110={articlesInShoppingCart} class="transistion-all relative duration-200 ease-in-out">
+						{#if $storeShoppingCart.length > 0}
+							<div
+								class="absolute -top-2 left-5 z-30 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white font-sans text-sm font-bold"
+							>
+								{articlesInShoppingCart}
+							</div>
+						{/if}
+						<IconShoppingCart size={30} />
+					</div>
 				</button>
 			{:else}
 				<a href="/shop" class="">

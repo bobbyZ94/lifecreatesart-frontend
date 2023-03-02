@@ -8,7 +8,6 @@
 
 	function reduceItemQuantity(index: number, itemQuantity: number, itemId: string): void {
 		if (itemQuantity > 1) {
-			console.log('HERE')
 			storeShoppingCart.set($storeShoppingCart.map((item) => (item.id === itemId ? { ...item, quantity: item.quantity - 1 } : { ...item })))
 		} else {
 			$storeShoppingCart.splice(index, 1)

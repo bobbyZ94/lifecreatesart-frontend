@@ -11,7 +11,6 @@
 	export let data: PageData
 	const { articles } = data
 	$: currentStep = 1
-	$: console.log('STEP', currentStep)
 
 	// Workaround to hide scrollbar when drawer opens
 	function bodyClass(className: string) {
