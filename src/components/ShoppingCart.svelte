@@ -24,7 +24,7 @@
 	}
 </script>
 
-<div class="my-10 flex flex-col items-center gap-5">
+<div class="my-5 flex flex-col items-center gap-2">
 	{#if $storeShoppingCart.length > 0}
 		{#each $storeShoppingCart as item, index}
 			<div class="flex items-center">
@@ -35,7 +35,7 @@
 						<button on:click={() => reduceItemQuantity(index, item.quantity, item.id)}>
 							<IconMinus />
 						</button>
-						Quantity: {item.quantity}
+						<div class="whitespace-nowrap break-keep">Pcs: {item.quantity}</div>
 						<button on:click={() => increaseItemQuantity(index, item.quantity, item.id)}>
 							<IconPlus />
 						</button>
@@ -43,7 +43,9 @@
 					<div>{new Intl.NumberFormat('en-DE', { style: 'currency', currency: 'EUR' }).format(item.price * item.quantity)}</div>
 				</div>
 			</div>
+			<div class="divider m-0" />
 		{/each}
 	{/if}
+
 	<div class="mt-5 text-lg font-bold">Sum: {new Intl.NumberFormat('en-DE', { style: 'currency', currency: 'EUR' }).format(sum)}</div>
 </div>
