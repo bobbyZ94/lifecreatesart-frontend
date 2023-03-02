@@ -1,3 +1,3 @@
-<div class="container h-full mx-auto flex justify-center items-center">
+<div class="container mx-auto flex h-full items-center justify-center">
 	<h1>Blog list</h1>
 </div>

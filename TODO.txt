@@ -1,0 +1,14 @@
+- Mobile Nav Menu
+  - Whole Page slinding in from left
+- Shopping cart
+  - Show current item number in Cart icon
+- Checkout (sldingin in from right don dekstop as drawer / whole page on mobile)
+  - Summary
+  - Adress
+  - Payment
+  - Result
+- Showcase
+- Blog
+- Cookies
+- Legal
+- Impressum

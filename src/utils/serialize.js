@@ -27,7 +27,7 @@ const serialize = node => {
     case 'h2':
       return `<h2>${children}</h2>`
     case 'h3':
-      return `<h3>${children}</h3>`       
+      return `<h3>${children}</h3>`
     case 'link':
       // TODO: logic for internal links via linkType
       return node.newTab ? `<a class="" target="_blank" href="${escapeHtml(node.url)}">${children}</a>` : `<a class="" href="${escapeHtml(node.url)}">${children}</a>`

@@ -1,44 +1,27 @@
 <script lang ts>
-	import { IconMenu2, IconShoppingBag, IconShoppingCart } from '@tabler/icons-svelte';
-	import { page } from '$app/stores';
+	import { IconMenu2, IconShoppingBag, IconShoppingCart } from '@tabler/icons-svelte'
+	import { page } from '$app/stores'
+	import { shoppingCartVisible } from '../stores/shoppingCart'
 </script>
 
-<div
-	class="navbar sticky top-0 z-10 rounded-b-[2rem] bg-neutral bg-opacity-70 px-8 pt-3 pb-0 font-bold shadow-lg backdrop-blur-md"
->
+<div class="navbar sticky top-0 z-10 rounded-b-[2rem] bg-neutral bg-opacity-70 px-8 pt-3 pb-0 font-bold shadow-lg backdrop-blur-md">
 	<!-- Navbar Left Side -->
 	<div class="navbar-start w-3/4">
 		<button class="md:hidden">
 			<IconMenu2 size={30} />
 		</button>
 		<div class="hidden gap-8 font-semibold uppercase tracking-wider md:flex">
-			<a
-				href="/"
-				class="border-b-2 border-transparent transition-all duration-200 ease-in-out hover:border-neutral-content"
-				>Home</a
-			>
-			<a
-				href="/shop"
-				class="border-b-2 border-transparent transition-all duration-200 ease-in-out hover:border-neutral-content"
-				>Art Shop</a
-			>
-			<a
-				href="/showcase"
-				class="border-b-2 border-transparent transition-all duration-200 ease-in-out hover:border-neutral-content"
-				>Art Showcase</a
-			>
-			<a
-				href="/blog"
-				class="border-b-2 border-transparent transition-all duration-200 ease-in-out hover:border-neutral-content"
-				>Blog</a
-			>
+			<a href="/" class="border-b-2 border-transparent transition-all duration-200 ease-in-out hover:border-neutral-content">Home</a>
+			<a href="/shop" class="border-b-2 border-transparent transition-all duration-200 ease-in-out hover:border-neutral-content">Art Shop</a>
+			<a href="/showcase" class="border-b-2 border-transparent transition-all duration-200 ease-in-out hover:border-neutral-content">Art Showcase</a>
+			<a href="/blog" class="border-b-2 border-transparent transition-all duration-200 ease-in-out hover:border-neutral-content">Blog</a>
 		</div>
 	</div>
 	<!-- Navbar Right Side -->
 	<div class="navbar-end w-1/4">
 		<div class="flex h-12 items-center">
 			{#if $page.url.pathname === '/shop'}
-				<button>
+				<button on:click={() => ($shoppingCartVisible ? ($shoppingCartVisible = false) : ($shoppingCartVisible = true))}>
 					<IconShoppingCart size={30} />
 				</button>
 			{:else}

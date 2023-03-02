@@ -7,12 +7,15 @@ const authorizationHeader = {
 }
 
 export const load = (async ({ fetch }) => {
-	const articles = await fetch(`${env.PAYLOADCMS_URL}/api/articles?where[_status][equals]=published`, {
+	const legal = await fetch(`${env.PAYLOADCMS_URL}/api/globals/legal`, {
 		method: 'GET',
 		headers: authorizationHeader,
 	}).then((res) => res.json())
 
 	return {
-		articles: articles.docs,
+		legal: {
+			title: legal.title,
+			text: legal.text,
+		},
 	}
 }) satisfies PageServerLoad

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import currentImageUrl from '../stores/currentImageUrl';
+	import currentImageUrl from '../stores/currentImageUrl'
 </script>
 
 <input type="checkbox" id="img-modal" class="modal-toggle" />
