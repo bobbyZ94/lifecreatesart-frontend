@@ -35,9 +35,11 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-node": "^1.2.1",
 		"@tabler/icons-svelte": "^2.6.0",
 		"@tailwindcss/typography": "^0.5.9",
 		"daisyui": "^2.51.2",
+		"dotenv": "^16.0.3",
 		"escape-html": "^1.0.3",
 		"slate": "^0.91.4",
 		"svelte-bricks": "^0.1.7",
