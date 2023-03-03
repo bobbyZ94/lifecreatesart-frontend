@@ -39,20 +39,24 @@
 	}
 </script>
 
-<div class="grid max-w-6xl grid-cols-1 rounded p-8 shadow-lg backdrop-contrast-[1.05] xl:grid-cols-3">
+<div class="grid max-w-6xl grid-cols-1 rounded p-8 shadow-lg drop-shadow-lg backdrop-contrast-[1.1] xl:grid-cols-3">
 	<!-- Image Section -->
 	<div class="flex h-full flex-col items-center justify-center pb-5 xl:col-span-2 xl:mr-16">
 		<h1 class="mb-8 font-serif text-4xl sm:text-6xl">{article.title}</h1>
 		<!-- Enable Modal popup when clicking on image -> bound to modal living in /layout -->
-		<label for="img-modal" class="flex h-[15rem] w-[20rem] cursor-pointer items-center sm:h-[22rem] sm:w-[30rem] lg:h-[30rem] lg:w-[40rem]">
-			<button on:click={() => ($currentImageUrl = article.images[currentlySelectedImage].image.url)}>
-				<img
-					src={article.images[currentlySelectedImage].image.url}
-					alt={article.images[currentlySelectedImage].image.title}
-					class="h-full w-full overflow-hidden border-none object-contain drop-shadow-lg "
-				/>
-			</button>
-		</label>
+
+		<button on:click={() => ($currentImageUrl = article.images[currentlySelectedImage].image.url)}>
+			<label for="img-modal" class="bg-red-500">
+				<div class="flex h-[15rem] w-[20rem] cursor-pointer items-center sm:h-[22rem] sm:w-[30rem] lg:h-[30rem] lg:w-[40rem]">
+					<img
+						src={article.images[currentlySelectedImage].image.url}
+						alt={article.images[currentlySelectedImage].image.title}
+						class="h-full w-full overflow-hidden border-none object-contain drop-shadow-lg "
+					/>
+				</div>
+			</label>
+		</button>
+
 		<!-- Images Container -->
 		{#if article.images.length > 1}
 			<div class="my-3 flex max-w-[40rem] flex-wrap gap-3">

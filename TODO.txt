@@ -1,9 +1,7 @@
 - Mobile Nav Menu
   - Whole Page slinding in from left
 - Shopping cart
-  - Show current item number in Cart icon
-- Checkout (sldingin in from right don dekstop as drawer / whole page on mobile)
-  - Summary
+- Checkout
   - Adress
   - Payment
   - Result
@@ -11,4 +9,7 @@
 - Blog
 - Cookies
 - Legal
-- Impressum
+
+FIX MODALS
+
+FIX SCROLLBAR COLOR ON HOME PAGE

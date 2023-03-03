@@ -11,34 +11,7 @@
 	export let data: PageData
 	const { articles } = data
 	$: currentStep = 1
-
-	// Workaround to hide scrollbar when drawer opens
-	function bodyClass(className: string) {
-		return function (node: HTMLElement, toggled: boolean) {
-			node.classList.toggle(className, toggled)
-
-			return {
-				update(toggled: boolean) {
-					node.classList.toggle(className, toggled)
-				},
-				destroy() {
-					node.classList.remove(className)
-				},
-			}
-		}
-	}
-	const classOverflowHidden = bodyClass('overflow-hidden')
-	const classCustomScrollbarThumb = bodyClass('scrollbar-thumb-neutral')
-	const classCustomScrollbarTrack = bodyClass('scrollbar-track-base-100')
-	const classCustomScrollbarWidth = bodyClass('scrollbar-thin')
 </script>
-
-<svelte:body
-	use:classOverflowHidden={$shoppingCartVisible}
-	use:classCustomScrollbarThumb={$shoppingCartVisible ? false : true}
-	use:classCustomScrollbarTrack={$shoppingCartVisible ? false : true}
-	use:classCustomScrollbarWidth={$shoppingCartVisible ? false : true}
-/>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="flex h-full w-full flex-col items-center justify-center">
@@ -101,7 +74,7 @@
 			</div>
 		</div>
 	{/if}
-	<div class="my-14 flex flex-col gap-14 overflow-hidden lg:my-20 xl:gap-28">
+	<div class="my-14 flex flex-col gap-14 lg:my-20 xl:gap-28">
 		{#each articles as article}
 			<Article {article} />
 		{/each}
