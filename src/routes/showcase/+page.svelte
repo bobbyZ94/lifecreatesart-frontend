@@ -5,7 +5,7 @@
 	const showcase = data.showcase.sort((itemA, itemB) => new Date(itemB.date) - new Date(itemA.date))
 	import Masonry from 'svelte-bricks'
 
-	let [minColWidth, maxColWidth, gap]: [minColWith: number | undefined, maxColWidth: number | undefined, gap: number | undefined] = [400, 1260, 30]
+	let [minColWidth, maxColWidth, gap]: [minColWith: number | undefined, maxColWidth: number | undefined, gap: number | undefined] = [400, 1500, 30]
 	let masonryWidth: number | undefined
 	let masonryHeight: number | undefined
 </script>
